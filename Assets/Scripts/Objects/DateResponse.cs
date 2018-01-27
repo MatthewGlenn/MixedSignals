@@ -1,7 +1,7 @@
 public class DateResponse{
-    public string ResponseText { get; private set }
-    public Emotion DateEmotion { get; private set }
-    public int Status { get; private set }
+    public string ResponseText { get, set }
+    public Emotion DateEmotion { get, set }
+    public int Status { get, set }
     
     public DateResponse(string responseText, Emotion emotion, int status){
         ResponseText =  response

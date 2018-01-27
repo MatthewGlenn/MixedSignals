@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void ResetGame(){
-		SceneManager.LoadScene (1);
+		SceneManager.LoadScene (0);
 	}
 
 	public void ExitGame(){

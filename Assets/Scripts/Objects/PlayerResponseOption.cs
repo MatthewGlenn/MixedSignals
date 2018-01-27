@@ -1,7 +1,7 @@
 public class PlayerResponse {
-    public string ResponseText = { get; private set };
-    public DateResponse GuyResponse = { get; private set };
-    public DateResponse GirlResponse = { get; private set };
+    public string ResponseText = { get, set };
+    public DateResponse GuyResponse = { get, set };
+    public DateResponse GirlResponse = { get, set };
 
     public PlayerResponse (string responseText, DateResponse guyResponse, DateResponse girlResponse){
         ResponseText = responseText;

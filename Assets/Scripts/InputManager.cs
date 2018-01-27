@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class InputManager : MonoBehaviour {
 
 	public GameObject pauseMenu;
-	public GameObject responseMenu;
 
 	private Vector3 openUI = new Vector3(1,1,1);
 	private Vector3 closeUI = new Vector3(0,0,0);
@@ -14,8 +13,6 @@ public class InputManager : MonoBehaviour {
 	void Start(){
 		if (!pauseMenu) 
 			Debug.Log ("No pause menu attached to inputManager");
-		if (!responseMenu)
-			Debug.Log ("No response menu attached to inputManager");
 	}
 
 	// Update is called once per frame
@@ -47,6 +44,8 @@ public class InputManager : MonoBehaviour {
 
 	public void CloseUI(GameObject gameObject){
 		gameObject.transform.localScale = closeUI;
-		gameObject.GetComponent<ButtonController> ().enabledInput = false; //disables interaction with UI
+		if(gameObject.GetComponent<ButtonController> ()){
+			gameObject.GetComponent<ButtonController> ().enabledInput = false; //disables interaction with UI
+		}
 	}
 }

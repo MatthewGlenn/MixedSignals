@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InputManager : MonoBehaviour {
 
 	public GameObject pauseMenu;
+<<<<<<< HEAD
 	public DialogueController dialogueController;
 
 	private Vector3 openUI = new Vector3(1,1,1);
@@ -14,10 +15,19 @@ public class InputManager : MonoBehaviour {
 	void Start(){
 		if (!pauseMenu) 
 			Debug.Log ("No pause menu attached to inputManager");
+=======
+
+	void Start(){
+		if (!pauseMenu) 
+			Debug.Log ("No pause menu attached");
+
+
+>>>>>>> e18970acc0a91dd1827291d9ba2d6279192f0b59
 	}
 
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
 		if (Input.GetButtonDown ("Pause")) {
 			if (pauseMenu.transform.localScale == openUI) {
 				Time.timeScale = 1;
@@ -47,6 +57,10 @@ public class InputManager : MonoBehaviour {
 		gameObject.transform.localScale = closeUI;
 		if(gameObject.GetComponent<ButtonController> ()){
 			gameObject.GetComponent<ButtonController> ().enabledInput = false; //disables interaction with UI
+=======
+		if (Input.GetKeyDown ("Cancel")) {
+
+>>>>>>> e18970acc0a91dd1827291d9ba2d6279192f0b59
 		}
 	}
 }

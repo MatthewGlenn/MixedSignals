@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InputManager : MonoBehaviour {
 
 	public GameObject pauseMenu;
+	public DialogueController dialogueController;
 
 	private Vector3 openUI = new Vector3(1,1,1);
 	private Vector3 closeUI = new Vector3(0,0,0);

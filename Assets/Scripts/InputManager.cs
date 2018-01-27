@@ -7,6 +7,8 @@ public class InputManager : MonoBehaviour {
 
 	public GameObject pauseMenu;
 	public GameObject responseMenu;
+	public Button[] pauseButtons;
+	public Button[] dialogueButtons;
 
 	private Vector3 openUI = new Vector3(1,1,1);
 	private Vector3 closeUI = new Vector3(0,0,0);

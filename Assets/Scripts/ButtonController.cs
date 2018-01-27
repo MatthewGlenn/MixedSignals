@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ButtonController : MonoBehaviour {
 
 	public Button[] buttons;
-	public bool enabledInput = true;
-	public bool player1Control = true;
+	public bool enabledInput = false;
+	public bool player1Control = false;
 	public bool player2Control = false;
 	private int currentSelection = 0;
 
@@ -18,8 +18,6 @@ public class ButtonController : MonoBehaviour {
 		{
 			buttons[i] = transform.GetChild(i).gameObject.GetComponent<Button>();
 		}
-
-		buttons [currentSelection].Select ();
 	}
 
 	void Update(){
@@ -41,7 +39,8 @@ public class ButtonController : MonoBehaviour {
 			if(Input.GetButtonDown("Player1Select")){
 				buttons [currentSelection].onClick.Invoke ();
 			}
-		} else if (player2Control) {
+		}
+		if(player2Control) {
 			if (Input.GetButtonDown ("Player2Up")) {
 				CurrentSelectionUpdate (1);
 				buttons [currentSelection].Select ();
@@ -55,6 +54,8 @@ public class ButtonController : MonoBehaviour {
 			}
 		}
 	}
+
+	//Takes buttonsize array into account and updates current selection to move like menu
 	void CurrentSelectionUpdate(int update){
 		if (update == 1) {
 			if (currentSelection == buttons.Length - 1) {
@@ -68,6 +69,12 @@ public class ButtonController : MonoBehaviour {
 			} else {
 				currentSelection += update;
 			}
+		}
 	}
-}
+
+	public void UpdateButtonText(string[] dialogueResponses){
+		for (int i = 0; i < buttons.Length; i++) {
+			buttons [i].GetComponentInChildren<Text> ().text = dialogueResponses [i];
+		}
+	}
 }

@@ -7,8 +7,6 @@ public class InputManager : MonoBehaviour {
 
 	public GameObject pauseMenu;
 	public GameObject responseMenu;
-	public Button[] pauseButtons;
-	public Button[] dialogueButtons;
 
 	private Vector3 openUI = new Vector3(1,1,1);
 	private Vector3 closeUI = new Vector3(0,0,0);
@@ -28,19 +26,27 @@ public class InputManager : MonoBehaviour {
 				CloseUI (pauseMenu);
 			} else {
 				Time.timeScale = 0;
-				OpenUI (pauseMenu);
+				OpenUI (pauseMenu, true, true);
 			}
 		}
 	}
 
-	void OpenUI(GameObject gameObject){
+	public void OpenUI(GameObject gameObject, bool player1Control, bool player2Control){
 		gameObject.transform.localScale = openUI;
+
 		//Selects a button if a button exist
 		if(gameObject.GetComponentInChildren<Button> ())
 			gameObject.GetComponentInChildren<Button> ().Select ();
+
+		//Goes into ButtonController and enables input and player controls
+		gameObject.GetComponent<ButtonController> ().enabledInput = true; //Enables interaction with UI
+		gameObject.GetComponent<ButtonController> ().player1Control = player1Control; //Sets player 1 control
+		gameObject.GetComponent<ButtonController> ().player2Control = player2Control; //Sets player 2 control
+
 	}
 
-	void CloseUI(GameObject gameObject){
+	public void CloseUI(GameObject gameObject){
 		gameObject.transform.localScale = closeUI;
+		gameObject.GetComponent<ButtonController> ().enabledInput = false; //disables interaction with UI
 	}
 }

@@ -1,7 +1,7 @@
 public class ConversationOpener{
-    public string PlayerStatement = { get; private set };
-    public string GuyStatement = { get; private set };
-    public string GirlStatement = { get; private set };
+	public string PlayerStatement { get; set; }
+	public string GuyStatement { get; set; }
+	public string GirlStatement { get; set; }
 
     public ConversationOpener(string playerStatement, string guyStatement, string girlStatement){
         PlayerStatement = playerStatement;

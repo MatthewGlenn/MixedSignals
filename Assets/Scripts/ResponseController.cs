@@ -16,7 +16,6 @@ public class ResponseController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		FindButtons ();
-		option2Button.Select ();
 	}
 
 	void FindButtons(){
